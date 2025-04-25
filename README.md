@@ -27,4 +27,6 @@ This repository is actually a simple library in C to block the terminal in the p
                /_____/     \_____\
            ---"     /       \    "---
            \_____ /           \ _____/
+
+Mde by me! :D
 ```

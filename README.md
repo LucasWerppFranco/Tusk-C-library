@@ -4,10 +4,10 @@ This repository is actually a simple library in C to block the terminal in the p
 
 ```
      __________              ___________
-    / __A__    )____________(     __A__ \
-    | ) ^ (    )    _____    (    ) ^ (  |
-    |         )    / \_/ \    (          |
-    |        )     | * * |     (         |   Tusk ACT 4!!!
+    / __A__    )_____________(    __A__ \
+    | ) ^ (    )    _____     (   ) ^ (  |
+    |         )    / \_/ \     (         |
+    |        )     | * * |      (        |   Tusk ACT 4!!!
     |_______)      (+++++)       (_______|
       /    |___     \___/        ___|   \   Yes, that's a Jojo reference!!!
      /    /|   \                /   |    \ 

@@ -7,7 +7,7 @@ This repository is actually a simple library in C to block the terminal in the p
     / __A__    )_____________(    __A__ \
     | ) ^ (    )    _____     (   ) ^ (  |
     |         )    / \_/ \     (         |
-    |        )     | * * |      (        |   Tusk ACT 4!!!
+    |        )     | * * |      (        |   TUSK ACT 4!!!
     |_______)      (+++++)       (_______|
       /    |___     \___/        ___|   \   Yes, that's a Jojo reference!!!
      /    /|   \                /   |    \ 

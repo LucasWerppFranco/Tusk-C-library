@@ -88,3 +88,94 @@ Pressione 'n' para ver a mensagem ou 'q' para sair do programa.
 ### Notas Finais
 
 - Você ainda existem seções para serem adicionadas conforme o projeto anda, como por exemplo: "Instalação", "Uso", "Exemplos", etc...
+
+## Todos os códigos
+
+```tusk.h
+#ifndef TUSK_H
+#define TUSK_H
+
+// Função para configurar o terminal em modo não bloqueante
+void set_conio_terminal_mode();
+
+// Função para restaurar as configurações do terminal
+void reset_terminal_mode();
+
+// Função para verificar se há um caractere disponível para leitura
+int kbhit();
+
+#endif // CONIO_LIB_H
+```
+
+```tusk.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <termios.h>
+#include <fcntl.h>
+#include "tusk.h"
+
+// Função para configurar o terminal em modo não bloqueante
+void set_conio_terminal_mode() {
+    struct termios new_settings;
+    tcgetattr(STDIN_FILENO, &new_settings); // Obtém as configurações atuais do terminal
+    new_settings.c_lflag &= ~(ICANON | ECHO); // Desativa o modo canônico e o eco
+    tcsetattr(STDIN_FILENO, TCSANOW, &new_settings); // Aplica as novas configurações
+}
+
+// Função para restaurar as configurações do terminal
+void reset_terminal_mode() {
+    struct termios new_settings;
+    tcgetattr(STDIN_FILENO, &new_settings); // Obtém as configurações atuais do terminal
+    new_settings.c_lflag |= (ICANON | ECHO); // Restaura o modo canônico e o eco
+    tcsetattr(STDIN_FILENO, TCSANOW, &new_settings); // Aplica as novas configurações
+}
+
+// Função para verificar se há um caractere disponível para leitura
+int kbhit() {
+    struct termios oldt, newt;
+    int oldf;
+    tcgetattr(STDIN_FILENO, &oldt); // Obtém as configurações atuais do terminal
+    newt = oldt; // Copia as configurações
+    newt.c_lflag &= ~(ICANON | ECHO); // Desativa o modo canônico e o eco
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt); // Aplica as novas configurações
+    oldf = fcntl(STDIN_FILENO, F_GETFL, 0); // Obtém as flags atuais
+    fcntl(STDIN_FILENO, F_SETFL, oldf | O_NONBLOCK); // Define o modo não bloqueante
+
+    int ch = getchar(); // Tenta ler um caractere
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt); // Restaura as configurações do terminal
+    fcntl(STDIN_FILENO, F_SETFL, oldf); // Restaura as flags
+
+    if(ch != EOF) { // Se um caractere foi lido
+        ungetc(ch, stdin); // Coloca o caractere de volta no buffer
+        return 1; // Retorna 1 para indicar que há um caractere disponível
+    }
+
+    return 0; // Retorna 0 se não houver caractere disponível
+}
+```
+
+```main.c
+#include <stdio.h>
+#include "tusk.h"
+
+int main() {
+    set_conio_terminal_mode(); // Configura o terminal em modo não bloqueante
+    printf("Pressione 'n' para ver a mensagem ou 'q' para sair.\n");
+
+    while (1) {
+        if (kbhit()) { // Verifica se há um caractere disponível
+            char ch = getchar(); // Lê o caractere
+            if (ch == 'n') {
+                printf("Você pressionou a tecla 'n'!\n");
+            } else if (ch == 'q') {
+                break; // Sai do loop se 'q' for pressionado
+            }
+        }
+        usleep(100000); // Espera um pouco para evitar uso excessivo da CPU
+    }
+
+    reset_terminal_mode(); // Restaura as configurações do terminal
+    return 0; // Retorna 0 para indicar que o programa terminou com sucesso
+}
+```

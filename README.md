@@ -31,3 +31,8 @@ This repository is actually a simple library in C to block the terminal in the p
 
 Mde by me! :D
 ```
+---
+
+## Documentation
+
+- [Access to Documentation.](Tusk-C-library/Documentation)

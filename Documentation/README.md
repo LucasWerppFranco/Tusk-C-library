@@ -4,6 +4,6 @@
 
 ## Documentation in other languages
 
-- [PT - BR](Documentation/Documentation_in_Portuguese)
+- [PT - BR](Documentation/Documentation_in_Portuguese/README.md)
 
 ---

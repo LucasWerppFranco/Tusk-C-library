@@ -35,4 +35,4 @@ Mde by me! :D
 
 ## Documentation
 
-- [Access to Documentation.](Tusk-C-library/Documentation)
+- [Access to Documentation.](Documentation)

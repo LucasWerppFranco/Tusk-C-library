@@ -53,7 +53,7 @@ int main() {
 }
 ```
 
-Explicação do Código
+## Explicação do Código
 
 - **1** Inclusão de Cabeçalho: O programa inclui o cabeçalho da biblioteca conio_lib.h, que contém as declarações das funções.
 

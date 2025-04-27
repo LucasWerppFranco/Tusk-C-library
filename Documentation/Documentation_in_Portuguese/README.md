@@ -71,8 +71,8 @@ int main() {
 Para compilar a biblioteca e o programa principal, use os seguintes comandos no terminal:
 
 ```bash
-gcc -c conio_lib.c -o conio_lib.o  # Compila a biblioteca
-gcc main.c conio_lib.o -o main      # Compila o programa principal
+gcc -c tusk.c -o tusk.o  # Compila a biblioteca
+gcc main.c tusk.o -o main      # Compila o programa principal
 ```
 
 ## Execução

@@ -10,7 +10,7 @@ cd Tusk-C-library
 2 - Execute o Makefile e use-o para instalar a biblioteca:
 
 ```bash
-sudo make uninstall
+sudo make install
 ```
 
 # Desistalando Biblioteca

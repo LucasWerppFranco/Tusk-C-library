@@ -30,22 +30,27 @@ O arquivo `main.c` demonstra como utilizar a biblioteca `conio_lib` para detecta
 
 ```c
 #include <stdio.h>
-#include "conio_lib.h"
+#include <time.h>
+#include "tusk.h"
 
 int main() {
-    set_conio_terminal_mode(); // Configura o terminal em modo não bloqueante
+    set_conio_terminal_mode(); // Configura o terminal no modo não bloqueante
     printf("Pressione 'n' para ver a mensagem ou 'q' para sair.\n");
 
+    struct timespec ts;
+    ts.tv_sec = 0;
+    ts.tv_nsec = 100000 * 1000; // Aguarda brevemente para evitar uso excessivo da CPU
+
     while (1) {
-        if (kbhit()) { // Verifica se há um caractere disponível
+        if (kbhit()) { // Verifica se um caractere está disponível
             char ch = getchar(); // Lê o caractere
             if (ch == 'n') {
                 printf("Você pressionou a tecla 'n'!\n");
             } else if (ch == 'q') {
-                break; // Sai do loop se 'q' for pressionado
+                break; // Sai do loop se pressionar 'q'
             }
         }
-        usleep(100000); // Espera um pouco para evitar uso excessivo da CPU
+        nanosleep(&ts, NULL);
     }
 
     reset_terminal_mode(); // Restaura as configurações do terminal
@@ -157,22 +162,27 @@ int kbhit() {
 
 ```main.c
 #include <stdio.h>
+#include <time.h>
 #include "tusk.h"
 
 int main() {
-    set_conio_terminal_mode(); // Configura o terminal em modo não bloqueante
+    set_conio_terminal_mode(); // Configura o terminal no modo não bloqueante
     printf("Pressione 'n' para ver a mensagem ou 'q' para sair.\n");
 
+    struct timespec ts;
+    ts.tv_sec = 0;
+    ts.tv_nsec = 100000 * 1000; // Aguarda brevemente para evitar uso excessivo da CPU
+
     while (1) {
-        if (kbhit()) { // Verifica se há um caractere disponível
+        if (kbhit()) { // Verifica se um caractere está disponível
             char ch = getchar(); // Lê o caractere
             if (ch == 'n') {
                 printf("Você pressionou a tecla 'n'!\n");
             } else if (ch == 'q') {
-                break; // Sai do loop se 'q' for pressionado
+                break; // Sai do loop se pressionar 'q'
             }
         }
-        usleep(100000); // Espera um pouco para evitar uso excessivo da CPU
+        nanosleep(&ts, NULL);
     }
 
     reset_terminal_mode(); // Restaura as configurações do terminal

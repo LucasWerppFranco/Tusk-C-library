@@ -38,22 +38,27 @@ The `main.c` file demonstrates how to use the `conio_lib` library to detect user
 
 ```c
 #include <stdio.h>
-#include "conio_lib.h"
+#include <time.h>
+#include "tusk.h"
 
 int main() {
     set_conio_terminal_mode(); // Configures the terminal in non-blocking mode
-    printf("Press 'n' to see the message or 'q' to quit.\n");
+    printf("Pressione 'n' para ver a mensagem ou 'q' para sair.\n");
+
+    struct timespec ts;
+    ts.tv_sec = 0;
+    ts.tv_nsec = 100000 * 1000; // Waits briefly to prevent excessive CPU usage
 
     while (1) {
         if (kbhit()) { // Checks if a character is available
             char ch = getchar(); // Reads the character
             if (ch == 'n') {
-                printf("You pressed the 'n' key!\n");
+                printf("Você pressionou a tecla 'n'!\n");
             } else if (ch == 'q') {
-                break; // Exits the loop if 'q' is pressed
+                break;
             }
         }
-        usleep(100000); // Waits briefly to prevent excessive CPU usage
+        nanosleep(&ts, NULL);
     }
 
     reset_terminal_mode(); // Restores terminal settings

@@ -17,7 +17,7 @@ sudo make uninstall
 
 ---
 
-# Desistalando biblioteca
+# Desistalando Biblioteca
 
 ```bash
 sudo make uninstall

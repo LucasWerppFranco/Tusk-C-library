@@ -1,7 +1,5 @@
 # Instalação
 
----
-
 1 - Baixe e abra o repositório:
 
 ```bash
@@ -14,8 +12,6 @@ cd Tusk-C-library
 ```bash
 sudo make uninstall
 ```
-
----
 
 # Desistalando Biblioteca
 

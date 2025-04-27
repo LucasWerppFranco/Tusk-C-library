@@ -35,6 +35,10 @@ Mde by me! :D
 ```
 ---
 
+## Installation
+
+- [Installation](Installing)
+
 ## Documentation
 
 - [Access to Documentation.](Documentation)

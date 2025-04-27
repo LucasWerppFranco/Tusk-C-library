@@ -1,4 +1,7 @@
 # Installation
+---
+i [PT - BR](Installing_in_Portuguese)
+---
 
 1 - Download and open the repository:
 

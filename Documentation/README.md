@@ -14,8 +14,8 @@ This project contains a C library called `tusk`, which allows non-blocking keybo
 
 /project  
 │  
-├── conio_lib.h # Library header  
-├── conio_lib.c # Library implementation  
+├── tusk.h # Library header  
+├── tusk.c # Library implementation  
 └── main.c # Main program that uses the library  
 
 ## Library Features
@@ -83,8 +83,8 @@ int main() {
 To compile the library and the main program, use the following commands in the terminal:
 
 ```bash
-gcc -c conio_lib.c -o conio_lib.o  # Compiles the library
-gcc main.c conio_lib.o -o main      # Compiles the main program
+gcc -c tusk.c -o conio_lib.o  # Compiles the library
+gcc main.c tusk.o -o main      # Compiles the main program
 ```
 
 ## Execution

@@ -55,7 +55,7 @@ int main() {
             if (ch == 'n') {
                 printf("Você pressionou a tecla 'n'!\n");
             } else if (ch == 'q') {
-                break;
+                break; // exit the loop if you press 'q'
             }
         }
         nanosleep(&ts, NULL);

@@ -2,6 +2,8 @@
 
 This repository is actually a simple library in C to block the terminal in the program in a simpler way. I tried to make it as simple as possible so that it can be used both in the system I am developing with it, and in anyone who may come to use it.
 
+> ⚠️ **Attention:** The documentation for this library is not 100% finished yet. I'd be happy to hear from anyone who finds any issues with the documentation.
+
 ```
      __________               __________
     / __A__    )_____________(    __A__ \

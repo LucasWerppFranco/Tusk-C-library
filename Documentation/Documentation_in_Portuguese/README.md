@@ -4,7 +4,7 @@ Este projeto contém uma biblioteca em C chamada `tusk`, que permite a leitura d
 
 ## Estrutura do Projeto
 
-/projeto 
+projeto/ 
 │
 ├── conio_lib.h # Cabeçalho da biblioteca 
 ├── conio_lib.c # Implementação da biblioteca 
